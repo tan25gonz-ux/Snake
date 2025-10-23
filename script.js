@@ -1,4 +1,4 @@
-// Animación de fade-in
+
 const sections = document.querySelectorAll('.fade-section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -7,7 +7,7 @@ const observer = new IntersectionObserver(entries => {
 });
 sections.forEach(sec => observer.observe(sec));
 
-// Carrusel 3D
+
 const slides = document.querySelectorAll('.carrusel-3d .slide');
 let current = 0;
 function updateCarousel() {
