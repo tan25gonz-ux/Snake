@@ -1,4 +1,4 @@
-// === ANIMACIÓN DE FADE-IN ===
+
 const sections = document.querySelectorAll('.fade-section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -7,7 +7,7 @@ const observer = new IntersectionObserver(entries => {
 });
 sections.forEach(sec => observer.observe(sec));
 
-// === CARRUSEL 3D GALERÍA ===
+
 const slides = document.querySelectorAll('.carrusel-3d .slide');
 let current = 0;
 function updateCarousel() {
@@ -30,4 +30,13 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     intro.classList.add("fade-out");
   }, 5000); // 5 segundos
+});
+
+const clases = document.querySelectorAll('.clase');
+
+clases.forEach(clase => {
+  const header = clase.querySelector('.clase-header');
+  header.addEventListener('click', () => {
+    clase.classList.toggle('activa');
+  });
 });
