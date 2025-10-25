@@ -1,4 +1,4 @@
-/* === RESET GENERAL === */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* === HEADER === */
+
 header {
   background: #43a047;
   color: white;
@@ -32,6 +32,13 @@ header img {
   height: 50px;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
 nav a {
   color: white;
   text-decoration: none;
@@ -44,7 +51,7 @@ nav a:hover, nav a.active {
   color: #c8e6c9;
 }
 
-/* === SECCIONES === */
+
 section {
   padding: 100px 20px;
   text-align: center;
@@ -61,7 +68,7 @@ p {
   line-height: 1.6;
 }
 
-/* === BOTONES === */
+
 .btn {
   background: #43a047;
   color: white;
@@ -75,37 +82,38 @@ p {
   background: #2e7d32;
 }
 
-/* === SECCIÓN INICIO === */
+
 #inicio {
-  background: url('Imagenes/Logo.png') center/cover no-repeat fixed;
   height: 100vh;
-  color: white;
+  background: url('imagenes/fondo.jpg') center center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   position: relative;
+  text-align: center;
+  color: white;
 }
 
 #inicio .overlay {
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
 }
 
-/* === ANIMACIÓN FADE-IN === */
+
 .fade-section {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
 }
-
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* === CLASES === */
+
 .clases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -142,11 +150,12 @@ p {
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
   padding: 10px;
+  font-size: 0.9rem;
 }
 
 .clase:hover::after { opacity: 1; }
 
-/* === ENTRENADORES === */
+
 .entrenadores-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -172,10 +181,7 @@ p {
   border-radius: 10px;
 }
 
-.entrenador h3 { margin-top: 10px; color: #2e7d32; }
-.entrenador p { color: #555; font-size: 14px; }
 
-/* === CARRUSEL 3D GALERÍA === */
 .carrusel-3d {
   position: relative;
   display: flex;
@@ -185,21 +191,19 @@ p {
   height: 400px;
   overflow: hidden;
 }
-
 .carrusel-3d .slide {
   position: absolute;
   transition: transform 1s, opacity 1s;
 }
-
 .carrusel-3d img {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   height: 300px;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* === FOOTER === */
 footer {
   background: #43a047;
   color: white;
@@ -208,7 +212,7 @@ footer {
   margin-top: 40px;
 }
 
-/* === WHATSAPP FLOAT === */
+
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -223,15 +227,7 @@ footer {
   z-index: 9999;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  header { flex-direction: column; }
-  nav { display: flex; flex-wrap: wrap; justify-content: center; }
-  nav a { margin: 5px; }
-  .carrusel-3d img { width: 90%; height: 200px; }
-}
 
-/* === INTRO CON VIDEO DE HUMO === */
 #intro-logo {
   position: fixed;
   top: 0; left: 0;
@@ -244,12 +240,10 @@ footer {
   z-index: 9999;
   transition: opacity 1.5s ease-in-out;
 }
-
 #intro-logo.fade-out {
   opacity: 0;
   pointer-events: none;
 }
-
 #humoFondo {
   position: absolute;
   width: 100%;
@@ -258,20 +252,30 @@ footer {
   opacity: 0.85;
   filter: brightness(0.9) hue-rotate(80deg);
 }
-
 .logo-animado {
-  width: 230px;
+  width: clamp(160px, 25vw, 240px);
   z-index: 2;
   filter: drop-shadow(0 0 20px #43a047);
   animation: glow 2s infinite alternate, pulse 3s infinite ease-in-out;
 }
-
 @keyframes glow {
   from { filter: drop-shadow(0 0 10px #2e7d32); }
   to { filter: drop-shadow(0 0 35px #76ff03); }
 }
-
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.08); }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  header { flex-direction: column; padding: 15px; }
+  #inicio .overlay { padding: 25px; }
+  .clases-grid, .entrenadores-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .clases-grid, .entrenadores-grid { grid-template-columns: 1fr; }
+  #inicio { background-position: center; }
+  #inicio h1 { font-size: 1.3rem; }
+  #inicio p { font-size: 0.9rem; }
 }
