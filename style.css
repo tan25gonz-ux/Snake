@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -24,19 +23,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
 header img {
   height: 50px;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
 }
 
 nav a {
@@ -47,7 +39,8 @@ nav a {
   transition: color 0.3s;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   color: #c8e6c9;
 }
 
@@ -82,19 +75,44 @@ p {
   background: #2e7d32;
 }
 
-
 #inicio {
   height: 100vh;
-  background: url('imagenes/fondo.jpg') center center/cover no-repeat;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   text-align: center;
   color: white;
+  overflow: hidden;
+}
+
+#inicio::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('Imagenes/Logo.png');
+  background-size: contain;         
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ffffff;           
+  transform: scale(1);
+  animation: zoomFondo 30s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+#inicio::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(192, 185, 185, 0.55);
+  z-index: 1;
 }
 
 #inicio .overlay {
+  position: relative;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.6);
   padding: 40px;
   border-radius: 12px;
@@ -103,58 +121,89 @@ p {
 }
 
 
+@keyframes zoomFondo {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+
 .fade-section {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
 }
+
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 
-.clases-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 20px;
+.clases-container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .clase {
-  position: relative;
-  background: white;
   border: 2px solid #43a047;
   border-radius: 12px;
-  padding: 30px 10px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .clase:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transform: scale(1.02);
 }
 
-.clase::after {
-  content: attr(data-info);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(67,160,71,0.95);
+.clase-header {
+  width: 100%;
+  text-align: left;
+  background: #43a047;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-  padding: 10px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.clase:hover::after { opacity: 1; }
+.clase-header:hover {
+  background: #2e7d32;
+}
 
+.clase-contenido {
+  max-height: 0;
+  overflow: hidden;
+  background: #f8f9fa;
+  transition: max-height 0.6s ease, padding 0.3s;
+  padding: 0 15px;
+}
+
+.clase-contenido img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.clase-contenido p {
+  margin: 10px 0;
+  text-align: left;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.clase.activa .clase-contenido {
+  max-height: 600px;
+  padding: 15px;
+}
 
 .entrenadores-grid {
   display: grid;
@@ -166,19 +215,31 @@ p {
 .entrenador {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
   text-align: center;
   transition: transform 0.3s;
 }
 
-.entrenador:hover { transform: scale(1.05); }
+.entrenador:hover {
+  transform: scale(1.05);
+}
 
 .entrenador img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.entrenador h3 {
+  margin-top: 10px;
+  color: #2e7d32;
+}
+
+.entrenador p {
+  color: #555;
+  font-size: 14px;
 }
 
 
@@ -191,18 +252,20 @@ p {
   height: 400px;
   overflow: hidden;
 }
+
 .carrusel-3d .slide {
   position: absolute;
   transition: transform 1s, opacity 1s;
 }
+
 .carrusel-3d img {
-  width: 90%;
-  max-width: 500px;
+  width: 500px;
   height: 300px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
 
 footer {
   background: #43a047;
@@ -223,7 +286,7 @@ footer {
   border-radius: 50%;
   padding: 12px 16px;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   z-index: 9999;
 }
 
@@ -240,10 +303,12 @@ footer {
   z-index: 9999;
   transition: opacity 1.5s ease-in-out;
 }
+
 #intro-logo.fade-out {
   opacity: 0;
   pointer-events: none;
 }
+
 #humoFondo {
   position: absolute;
   width: 100%;
@@ -252,30 +317,61 @@ footer {
   opacity: 0.85;
   filter: brightness(0.9) hue-rotate(80deg);
 }
+
 .logo-animado {
-  width: clamp(160px, 25vw, 240px);
+  width: 230px;
   z-index: 2;
   filter: drop-shadow(0 0 20px #43a047);
   animation: glow 2s infinite alternate, pulse 3s infinite ease-in-out;
 }
+
 @keyframes glow {
   from { filter: drop-shadow(0 0 10px #2e7d32); }
   to { filter: drop-shadow(0 0 35px #76ff03); }
 }
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.08); }
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  header { flex-direction: column; padding: 15px; }
-  #inicio .overlay { padding: 25px; }
-  .clases-grid, .entrenadores-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 480px) {
-  .clases-grid, .entrenadores-grid { grid-template-columns: 1fr; }
-  #inicio { background-position: center; }
-  #inicio h1 { font-size: 1.3rem; }
-  #inicio p { font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 0.9rem;
+  }
+
+  .carrusel-3d img {
+    width: 90%;
+    height: 200px;
+  }
+
+  #inicio::before {
+    background-size: cover; 
+    background-position: center top;
+    animation: none;          
+  }
+
+  .clase-header {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .clase-contenido img {
+    max-height: 180px;
+  }
 }
