@@ -4,14 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gym Snake Turrialba</title>
-  <link rel="icon" href="Imagenes/Logo.jpeg">
+  <link rel="icon" href="imagenes/logo.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- 🐍 ANIMACIÓN DE INTRO -->
+  <div id="intro-logo">
+    <canvas id="fogCanvas"></canvas>
+    <img src="imagenes/logo.png" alt="Gym Snake Logo" class="logo-animado">
+    <audio id="snakeSound" src="imagenes/snake.mp3"></audio>
+  </div>
+
+  <!-- 🧭 HEADER -->
   <header>
-    <img src="Imagenes/Logo.jpeg" alt="Logo">
+    <img src="imagenes/logo.png" alt="Logo">
     <nav>
       <a href="#inicio" class="active">Inicio</a>
       <a href="#nosotros">Nosotros</a>
@@ -23,7 +32,7 @@
     </nav>
   </header>
 
-
+  <!-- 🏋️ INICIO -->
   <section id="inicio">
     <div class="overlay">
       <h1>Bienvenido a Gym Snake Turrialba 🐍</h1>
@@ -32,13 +41,13 @@
     </div>
   </section>
 
-
+  <!-- 💬 NOSOTROS -->
   <section id="nosotros" class="fade-section">
     <h2>Nosotros</h2>
     <p>Somos un gimnasio en Turrialba comprometido con tu bienestar físico y mental. En Gym Snake creemos en la disciplina, el esfuerzo y la comunidad fitness.</p>
   </section>
 
-
+  <!-- 💪 CLASES -->
   <section id="clases" class="fade-section">
     <h2>Clases</h2>
     <div class="clases-grid">
@@ -51,34 +60,36 @@
     </div>
   </section>
 
+  <!-- 🧑‍🏫 ENTRENADORES -->
   <section id="entrenadores" class="fade-section">
     <h2>Entrenadores</h2>
     <div class="entrenadores-grid">
-      <div class="entrenador"><img src="Imagenes/Logo.jpeg" alt=""><h3>Carlos Ramírez</h3><p>Pesas y fuerza</p></div>
-      <div class="entrenador"><img src="Imagenes/Logo.jpeg" alt=""><h3>Sofía Vargas</h3><p>Spinning y cardio</p></div>
-      <div class="entrenador"><img src="Imagenes/Logo.jpeg" alt=""><h3>María López</h3><p>Funcional y core</p></div>
-      <div class="entrenador"><img src="Imagenes/Logo.jpeg" alt=""><h3>Andrés Calderón</h3><p>Crossfit</p></div>
-      <div class="entrenador"><img src="Imagenes/Logo.jpeg" alt=""><h3>Daniela Solís</h3><p>Yoga y flexibilidad</p></div>
+      <div class="entrenador"><img src="imagenes/entrenadores/ent1.jpg" alt=""><h3>Carlos Ramírez</h3><p>Pesas y fuerza</p></div>
+      <div class="entrenador"><img src="imagenes/entrenadores/ent2.jpg" alt=""><h3>Sofía Vargas</h3><p>Spinning y cardio</p></div>
+      <div class="entrenador"><img src="imagenes/entrenadores/ent3.jpg" alt=""><h3>María López</h3><p>Funcional y core</p></div>
+      <div class="entrenador"><img src="imagenes/entrenadores/ent4.jpg" alt=""><h3>Andrés Calderón</h3><p>Crossfit</p></div>
+      <div class="entrenador"><img src="imagenes/entrenadores/ent5.jpg" alt=""><h3>Daniela Solís</h3><p>Yoga y flexibilidad</p></div>
     </div>
   </section>
 
+  <!-- 🕒 HORARIOS -->
   <section id="horarios" class="fade-section">
     <h2>Horarios</h2>
     <p>Lunes a Viernes: 6:00am - 8:00pm<br>Sábados: 8:00am - 12:00pm</p>
   </section>
 
-
+  <!-- 🖼️ GALERÍA -->
   <section id="galeria" class="fade-section">
     <h2>Galería</h2>
     <div class="carrusel-3d">
-      <div class="slide"><img src="Imagenes/Logo.jpeg" alt=""></div>
-      <div class="slide"><img src="Imagenes/Logo.jpeg" alt=""></div>
-      <div class="slide"><img src="Imagenes/Logo.jpeg" alt=""></div>
-      <div class="slide"><img src="Imagenes/Logo.jpeg" alt=""></div>
+      <div class="slide"><img src="imagenes/galeria/img1.jpg" alt=""></div>
+      <div class="slide"><img src="imagenes/galeria/img2.jpg" alt=""></div>
+      <div class="slide"><img src="imagenes/galeria/img3.jpg" alt=""></div>
+      <div class="slide"><img src="imagenes/galeria/img4.jpg" alt=""></div>
     </div>
   </section>
 
-
+  <!-- 📞 CONTACTO -->
   <section id="contacto" class="fade-section">
     <h2>Contacto</h2>
     <p>📍 Turrialba, Costa Rica</p>
