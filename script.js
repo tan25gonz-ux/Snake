@@ -24,12 +24,11 @@ setInterval(() => {
 }, 4000);
 updateCarousel();
 
-// === INTRO DEL LOGO CON HUMO ===
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro-logo");
   setTimeout(() => {
     intro.classList.add("fade-out");
-  }, 5000); // 5 segundos
+  }, 5000); 
 });
 
 const clases = document.querySelectorAll('.clase');
